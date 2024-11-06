@@ -1,0 +1,3 @@
+/Users/brianreeder/CLionProjects/TTT/cmake-build-debug/CMakeFiles/TTT.dir
+/Users/brianreeder/CLionProjects/TTT/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/brianreeder/CLionProjects/TTT/cmake-build-debug/CMakeFiles/rebuild_cache.dir
