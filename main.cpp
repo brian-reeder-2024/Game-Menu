@@ -2,7 +2,6 @@
 Lab Week 14
 TTT game with special function
 Brian Reeder - 5/3/24
-
 */
 
 #include <iostream> //for cout, cin
@@ -171,51 +170,27 @@ void winCheck()
     writeOBJ.open("TTTwins.txt", std::ios::app);
 
 
-winCheck_loop:
+    winCheck_loop:
 
     if (loopIncrement == 0 || loopIncrement == 1) //basically runs the win check twice, once for x and once for O, since at the end of the x tests we changed wVar to O
     {
-
-        if ((TTT[1] == wVar) and (TTT[2] == wVar) and (TTT[3] == wVar))
-        {
-            std::cout << "   " << wVar << " has won with \n    row: 1, 2, 3";
-            winCount = 0;
-            writeOBJ << "\n" << wVar << ";has;won;with;row:;1,;2,;3?";
-        }
-        if ((TTT[4] == wVar) and (TTT[5] == wVar) and (TTT[6] == wVar))
-        {
-            std::cout << "   " << wVar << " has won with \n    row: 4, 5, 6";
-            winCount = 0;
-            writeOBJ << "\n" << wVar << ";has;won;with;row:;4,;5,;6?";
-        }
-        if ((TTT[7] == wVar) and (TTT[8] == wVar) and (TTT[9] == wVar))
-        {
-            std::cout << "   " << wVar << " has won with \n    row: 7, 8, 9";
-            winCount = 0;
-            writeOBJ << "\n" << wVar << ";has;won;with;row:;7,;8,;9?";
+        for(int i = 1; i <= 7; i+=3) {
+            if ((TTT[i] == wVar) && (TTT[i+1] == wVar) && (TTT[i+2] == wVar))
+            {
+                std::cout << "   " << wVar << " has won with \n    row: " << i << ", " << i+1 << ", " << i+2 << "\n";
+                winCount = 0;
+                writeOBJ << "\n" << wVar << ";has;won;with;row:;" << i << ",;" << i+1 << ",;" << i+2 << "?";
+            }
         }
 
-
-
-        if ((TTT[1] == wVar) and (TTT[4] == wVar) and (TTT[7] == wVar))
-        {
-            std::cout << "   " << wVar << " has won with \n  column : 1, 4, 7";
-            winCount = 0;
-            writeOBJ << "\n" << wVar << ";has;won;with;column:;1,;4,;7?";
+        for(int i = 1; i <= 3; i++) {
+            if ((TTT[i] == wVar) && (TTT[i+3] == wVar) && (TTT[i+6] == wVar))
+            {
+                std::cout << "   " << wVar << " has won with \n  column: " << i << ", " << i+3 << ", " << i+6 << "\n";
+                winCount = 0;
+                writeOBJ << "\n" << wVar << ";has;won;with;column:;" << i << ",;" << i+3 << ",;" << i+6 << "?";
+            }
         }
-        if ((TTT[2] == wVar) and (TTT[5] == wVar) and (TTT[8] == wVar))
-        {
-            std::cout << "   " << wVar << " has won with \n  column : 2, 5, 8";
-            winCount = 0;
-            writeOBJ << "\n" << wVar << ";has;won;with;column:;2,;5,;8?";
-        }
-        if ((TTT[3] == wVar) and (TTT[6] == wVar) and (TTT[9] == wVar))
-        {
-            std::cout << "   " << wVar << " has won with \n  column : 3, 6, 9";
-            winCount = 0;
-            writeOBJ << "\n" << wVar << ";has;won;with;column:;3,;6,;9?";
-        }
-
 
         if ((TTT[1] == wVar) and (TTT[5] == wVar) and (TTT[9] == wVar))
         {
